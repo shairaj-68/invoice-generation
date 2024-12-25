@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generation System</title>
+    <link rel="stylesheet" href="invoice.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Invoice Generation System</h1>
+        </header>
+
+        <form id="invoiceForm">
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" placeholder="Enter customer name" required>
+            </div>
+            <div class="form-group">
+                <label for="customerAddress">Address</label>
+                <textarea id="customerAddress" rows="3" placeholder="Enter customer address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="itemDescription">Item Description</label>
+                <input type="text" id="itemDescription" placeholder="Enter item description" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="pricePerUnit">Price Per Unit</label>
+                <input type="number" id="pricePerUnit" placeholder="Enter price per unit" required>
+            </div>
+            <div class="form-group">
+                <label for="taxRate">Tax Rate (%)</label>
+                <input type="number" id="taxRate" placeholder="Enter tax rate" required>
+            </div>
+
+            <button type="button" onclick="generateInvoice()">Generate Invoice</button>
+        </form>
+
+        <div class="invoice" id="invoice" style="display: none;">
+            <h2>Invoice</h2>
+            <p><strong>Customer Name:</strong> <span id="outputCustomerName"></span></p>
+            <p><strong>Address:</strong> <span id="outputCustomerAddress"></span></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price Per Unit</th>
+                        <th>Subtotal</th>
+                        <th>Tax</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="outputItemDescription"></td>
+                        <td id="outputQuantity"></td>
+                        <td id="outputPricePerUnit"></td>
+                        <td id="outputSubtotal"></td>
+                        <td id="outputTax"></td>
+                        <td id="outputTotal"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="download-invoice">Download as PDF</button>
+            <button id="print-invoice">Print</button>
+        </div>
+    </div>
+
+    <script src="invoice.js"></script>
+</body>
+</html>
